@@ -6,12 +6,13 @@
 }
 
 body {
-    /* Naya Background Image */
-    background-image: url('https://ibb.co/xqpPLTPM');
-    background-size: cover;      /* Image ko poori screen par failata hai */
-    background-position: center; /* Image ko center mein rakhta hai */
+    /* Default Background Image */
+    background-image: url('https://images.unsplash.com/photo-1534274988757-a28bf1a57c17');
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out; /* Adds a smooth transition effect */
 
-    /* Baaki styles waise hi rahenge */
+    /* Layout styles */
     display: flex;
     justify-content: center;
     align-items: center;
