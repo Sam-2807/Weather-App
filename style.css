@@ -6,7 +6,12 @@
 }
 
 body {
-    background: #222;
+    /* Naya Background Image */
+    background-image: url('https://images.unsplash.com/photo-1534274988757-a28bf1a57c17');
+    background-size: cover;      /* Image ko poori screen par failata hai */
+    background-position: center; /* Image ko center mein rakhta hai */
+
+    /* Baaki styles waise hi rahenge */
     display: flex;
     justify-content: center;
     align-items: center;
