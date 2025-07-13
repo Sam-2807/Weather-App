@@ -4,8 +4,42 @@ const searchBtn = document.querySelector(".search-btn");
 const weatherIcon = document.querySelector(".weather-icon");
 
 // !! IMPORTANT: Replace this with your own API key from OpenWeatherMap !!
-const apiKey = "6f5faceefb72fabe3373dfdbc356f749";
+const apiKey = "YOUR_API_KEY_HERE";
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+// NEW FUNCTION: Updates the background image based on the weather
+function updateBackground(weatherCondition) {
+    let imageUrl = '';
+    
+    // Select a background image URL based on the weather condition
+    switch (weatherCondition) {
+        case 'Clear':
+            imageUrl = 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb")';
+            break;
+        case 'Clouds':
+            imageUrl = 'url("https://images.unsplash.com/photo-1534088568595-a066f410bcda")';
+            break;
+        case 'Rain':
+        case 'Drizzle':
+            imageUrl = 'url("https://images.unsplash.com/photo-1515694346937-94d85e41e622")';
+            break;
+        case 'Mist':
+        case 'Haze':
+        case 'Fog':
+            imageUrl = 'url("https://images.unsplash.com/photo-1487621167335-52c6a331152a")';
+            break;
+        case 'Snow':
+            imageUrl = 'url("https://images.unsplash.com/photo-1547754980-3df97fed72a8")';
+            break;
+        default:
+            // A default image if the condition doesn't match
+            imageUrl = 'url("https://images.unsplash.com/photo-1534274988757-a28bf1a57c17")';
+    }
+    
+    // Set the background image of the body
+    document.body.style.backgroundImage = imageUrl;
+}
+
 
 async function checkWeather(city) {
     // Fetch data from the API
@@ -31,6 +65,9 @@ async function checkWeather(city) {
     const iconCode = data.weather[0].icon;
     weatherIcon.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
     
+    // NEW: Call the function to update the background
+    updateBackground(data.weather[0].main);
+    
     // Show the weather info and hide the error message
     document.querySelector(".weather").style.display = "block";
     document.querySelector(".error").style.display = "none";
@@ -38,7 +75,6 @@ async function checkWeather(city) {
 
 // Add an event listener to the search button
 searchBtn.addEventListener("click", () => {
-    // Call the checkWeather function with the city name from the input box
     checkWeather(searchBox.value);
 });
 
