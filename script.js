@@ -4,7 +4,7 @@ const searchBtn = document.querySelector(".search-btn");
 const weatherIcon = document.querySelector(".weather-icon");
 
 // !! IMPORTANT: Replace this with your own API key from OpenWeatherMap !!
-const apiKey = "YOUR_API_KEY_HERE";
+const apiKey = "6f5faceefb72fabe3373dfdbc356f749";
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
 // NEW FUNCTION: Updates the background image based on the weather
